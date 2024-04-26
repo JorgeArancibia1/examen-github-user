@@ -1,10 +1,11 @@
 import './App.css'
+import { GitHubUser } from './components/GitHubUser'
 
 function App() {
 
   return (
     <div>
-      Hola
+      <GitHubUser />
     </div>
   )
 }
