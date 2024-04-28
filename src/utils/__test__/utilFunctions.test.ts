@@ -1,6 +1,6 @@
 // test utils functions in ../utilFunctions.ts file
 import { describe, expect, it } from 'vitest';
-import { formatDate, formatMount } from '../utilFunctions';
+import { formatAmount, formatDate } from '../utilFunctions';
 // import fireEvent from '@testing-library/user-event';
 
 describe("formatDate", () => {
@@ -10,9 +10,9 @@ describe("formatDate", () => {
   });
 });
 
-describe("formatMount", () => {
+describe("formataMount", () => {
   it("should return a formatted amount", () => {
     const amount = 1000000;
-    expect(formatMount(amount)).toBe("1.000.000");
+    expect(formatAmount(amount)).toBe("1.000.000");
   });
 });
