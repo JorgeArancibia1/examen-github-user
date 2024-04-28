@@ -82,7 +82,7 @@ export const GitHubUser: FC = () => {
 					<UserCard info={user} />
 					<div>
 						<p className='text-3xl font-bold my-4'>Proyectos</p>
-						{isLoadingRepos && <Loading />}
+						{isLoadingRepos && <Loading width={100} />}
 						{repos.length === 0 ? (
 							<p>
 								No se han encontrado repositorios existentes para este usuario
