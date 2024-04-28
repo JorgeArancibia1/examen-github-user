@@ -42,6 +42,7 @@ export const useUser = (searchName: string) => {
 
 	return {
 		isLoading: userQuery.isLoading,
+		isLoadingRepos: reposQuery.isLoading,
 		isError: userQuery.isError,
 		error: userQuery.error?.message,
 		user: userQuery.data || null,

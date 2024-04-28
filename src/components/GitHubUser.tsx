@@ -4,6 +4,7 @@ import { FC, useEffect } from "react";
 import { useUser } from "../hooks/useFetchUser";
 import { ReposUserCard } from "./ReposUserCard";
 import { UserCard } from "./UserCard";
+import { Loading } from "./ui/Loading";
 
 export const GitHubUser: FC = () => {
 	const form = useForm({
@@ -12,7 +13,7 @@ export const GitHubUser: FC = () => {
 		},
 	});
 
-	const { user, isLoading, repos } = useUser(form.state.values.searchName);
+	const { user, isLoading, repos, isLoadingRepos } = useUser(form.state.values.searchName);
 
 	const handleClick = () => {
 		form.reset();
@@ -70,17 +71,18 @@ export const GitHubUser: FC = () => {
 					Limpiar
 				</button>
 			</div>
-			{isLoading && <p>Loading...</p>}
+			{isLoading && <Loading />}
 			{!isLoading && user === null && form.state.values.searchName !== "" && (
 				<p>No se ha encontrado un usuario con ese nombre</p>
 			)}
 
 			{/* Si viene informacion */}
-			{!!user && !!repos && (
+			{!!user && (
 				<div className='flex gap-2 flex-wrap justify-center'>
 					<UserCard info={user} />
 					<div>
 						<p className='text-3xl font-bold my-4'>Proyectos</p>
+						{isLoadingRepos && <Loading />}
 						{repos.length === 0 ? (
 							<p>
 								No se han encontrado repositorios existentes para este usuario
