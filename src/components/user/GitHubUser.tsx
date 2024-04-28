@@ -60,12 +60,12 @@ export const GitHubUser: FC = () => {
 								onClick={handleClick}
 								className={clsx({
 									hidden: form.state.values.searchName === "",
-									"w-8 h-7 absolute top-1/2 transform -translate-y-1/2 right-2 cursor-pointer":
+									"w-7 h-7 absolute top-1/2 transform -translate-y-1/2 right-0 cursor-pointer":
 										form.state.values.searchName !== "",
 								})}
 							/>
 							<input
-								className='border bg-slate-500 rounded-lg p-2  '
+								className='border border-gray-400 bg-slate-200 dark:bg-slate-500 rounded-lg p-2  '
 								name={field.name}
 								value={field.state.value}
 								onBlur={field.handleBlur}
@@ -75,7 +75,7 @@ export const GitHubUser: FC = () => {
 					)}
 				/>
 				<button
-					className='rounded-lg font-medium bg-indigo-600 cursor-pointer border-hidden px-5'
+					className='rounded-lg font-medium text-gray-50 bg-indigo-600 cursor-pointer border-hidden px-5'
 					type='submit'
 				>
 					Buscar
