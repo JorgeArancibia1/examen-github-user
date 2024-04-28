@@ -1,5 +1,6 @@
 import { FC } from "react";
 import { Repo } from "../../../interfaces";
+import { formatDate } from "../../../utils/utilFunctions";
 import { Card } from "../../ui/Card";
 
 interface Props {
@@ -22,7 +23,7 @@ export const RepositoryUserCard: FC<Props> = ({ repo }) => {
 					{repo.name}
 				</h5>
 				<p className='text-sm text-gray-500 dark:text-gray-400'>
-					{new Date(repo.created_at).toLocaleDateString()}
+					{formatDate(repo.created_at)}
 				</p>
 			</div>
 			<p className='mb-3 font-normal text-gray-700 dark:text-gray-400'>
