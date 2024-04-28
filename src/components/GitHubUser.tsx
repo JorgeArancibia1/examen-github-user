@@ -54,7 +54,7 @@ export const GitHubUser: FC = () => {
 					children={(field) => (
 						<label
 							htmlFor='email'
-							className='relative text-gray-400 focus-within:text-gray-600 block'
+							className='relative dark:text-gray-100 focus-within:text-gray-600'
 						>
 							<CloseIcon
 								onClick={handleClick}
