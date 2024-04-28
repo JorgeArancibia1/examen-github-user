@@ -3,7 +3,7 @@ import confetti from "canvas-confetti";
 import clsx from "clsx";
 import { FC, useEffect } from "react";
 import { useUser } from "../../hooks/useFetchUser";
-import { CloseIcon } from "../ui/CloseIcon";
+import { CloseIcon } from "../icons/CloseIcon";
 import { Loading } from "../ui/Loading";
 import { RepositoryUserCard } from "./RepositoryUserCard";
 import { UserCard } from "./UserCard";
