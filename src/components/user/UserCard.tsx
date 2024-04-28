@@ -1,6 +1,6 @@
 import { FC } from "react";
-import { User } from "../interfaces/user.interface";
-import { formatMount } from "../utils/utilFunctions";
+import { User } from "../../interfaces/user.interface";
+import { formatMount } from "../../utils/utilFunctions";
 
 interface Props {
 	info: User;

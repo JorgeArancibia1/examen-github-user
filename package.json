@@ -1,6 +1,14 @@
 {
   "name": "examen-github-user",
   "private": true,
+  "description": "A React app to search for GitHub users",
+  "homepage": "",
+  "languages": [
+    "TypeScript",
+    "React",
+    "Vite",
+    "Tailwind CSS"
+  ],
   "version": "0.0.0",
   "type": "module",
   "scripts": {

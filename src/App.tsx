@@ -1,4 +1,4 @@
-import { GitHubUser } from "./components/GitHubUser";
+import { GitHubUser } from "./components/user/GitHubUser";
 
 function App() {
 	return (

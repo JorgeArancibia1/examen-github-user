@@ -2,11 +2,11 @@ import { useForm } from "@tanstack/react-form";
 import confetti from "canvas-confetti";
 import clsx from "clsx";
 import { FC, useEffect } from "react";
-import { useUser } from "../hooks/useFetchUser";
-import { ReposUserCard } from "./ReposUserCard";
+import { useUser } from "../../hooks/useFetchUser";
+import { CloseIcon } from "../ui/CloseIcon";
+import { Loading } from "../ui/Loading";
+import { RepositoryUserCard } from "./RepositoryUserCard";
 import { UserCard } from "./UserCard";
-import { CloseIcon } from "./ui/CloseIcon";
-import { Loading } from "./ui/Loading";
 
 export const GitHubUser: FC = () => {
 	const form = useForm({
@@ -98,7 +98,9 @@ export const GitHubUser: FC = () => {
 								No se han encontrado repositorios existentes para este usuario
 							</p>
 						) : (
-							<ReposUserCard repos={repos} />
+							repos.map((repo) => (
+								<RepositoryUserCard repo={repo} />
+							))
 						)}
 					</div>
 				</div>
