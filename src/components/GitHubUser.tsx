@@ -1,4 +1,5 @@
 import { useForm } from "@tanstack/react-form";
+import confetti from "canvas-confetti";
 import { FC } from "react";
 import { useUser } from "../hooks/useFetchUser";
 import { ReposUserCard } from "./ReposUserCard";
@@ -15,12 +16,21 @@ export const GitHubUser: FC = () => {
 		form.state.values.searchName,
 	);
 
+	const handleClick = () => {
+		form.reset();
+	}
+
 	return (
 		<form
 			onSubmit={(e) => {
 				e.preventDefault();
 				e.stopPropagation();
 				form.handleSubmit();
+				confetti({
+					particleCount: 100,
+					spread: 70,
+					origin: { y: 0.6 },
+				});
 			}}
 		>
 			<div className='flex justify-center my-8 gap-4'>
@@ -41,6 +51,13 @@ export const GitHubUser: FC = () => {
 					type='submit'
 				>
 					Buscar
+				</button>
+				<button
+					className='rounded-lg font-medium bg-red-400 cursor-pointer border-hidden px-5'
+					type='button'
+					onClick={handleClick}
+				>
+					Limpiar
 				</button>
 			</div>
 			{isLoading && <p>Loading...</p>}
