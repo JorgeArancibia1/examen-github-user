@@ -1,6 +1,6 @@
 import { useForm } from "@tanstack/react-form";
 import confetti from "canvas-confetti";
-import { FC } from "react";
+import { FC, useEffect } from "react";
 import { useUser } from "../hooks/useFetchUser";
 import { ReposUserCard } from "./ReposUserCard";
 import { UserCard } from "./UserCard";
@@ -12,13 +12,21 @@ export const GitHubUser: FC = () => {
 		},
 	});
 
-	const { user, isLoading, repos } = useUser(
-		form.state.values.searchName,
-	);
+	const { user, isLoading, repos } = useUser(form.state.values.searchName);
 
 	const handleClick = () => {
 		form.reset();
-	}
+	};
+
+	useEffect(() => {
+		if (user !== null) {
+			confetti({
+				particleCount: 100,
+				spread: 70,
+				origin: { y: 0.6 },
+			});
+		}
+	}, [user]);
 
 	return (
 		<form
@@ -26,11 +34,13 @@ export const GitHubUser: FC = () => {
 				e.preventDefault();
 				e.stopPropagation();
 				form.handleSubmit();
-				confetti({
-					particleCount: 100,
-					spread: 70,
-					origin: { y: 0.6 },
-				});
+				if ( user !== null) {
+					confetti({
+						particleCount: 100,
+						spread: 70,
+						origin: { y: 0.6 },
+					});
+				}
 			}}
 		>
 			<div className='flex justify-center my-8 gap-4'>
@@ -42,7 +52,7 @@ export const GitHubUser: FC = () => {
 							name={field.name}
 							value={field.state.value}
 							onBlur={field.handleBlur}
-							onChange={({target: { value }}) => field.handleChange(value)}
+							onChange={({ target: { value } }) => field.handleChange(value)}
 						/>
 					)}
 				/>
