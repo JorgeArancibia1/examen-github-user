@@ -1,6 +1,9 @@
-
 export const Loading = () => {
-  return (
-    <img width={400} src="https://giphy.com/gifs/sonbaterias-mapache-bailando-baile-del-SvP3FgHsFVm7zwMdH6" />
-  )
-}
+	const loading =
+		"https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExeHFyZnY3eXhnaGhyOTZpZjQzamh5YWtvYTl1NG90Nmlvb3hkbWdveCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/aQwvKKi4Lv3t63nZl9/giphy-downsized.gif";
+	return (
+		<div className='w-full flex justify-center'>
+			<img width={300} src={loading} />
+		</div>
+	);
+};
