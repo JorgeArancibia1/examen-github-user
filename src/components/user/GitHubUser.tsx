@@ -5,8 +5,8 @@ import { FC, useEffect } from "react";
 import { useUser } from "../../hooks/useFetchUser";
 import { CloseIcon } from "../icons/CloseIcon";
 import { Loading } from "../ui/Loading";
-import { RepositoryUserCard } from "./RepositoryUserCard";
-import { UserCard } from "./UserCard";
+import { UserCard } from "./User";
+import { RepositoryUserCard } from "./repositoryUser/RepositoryUser";
 
 export const GitHubUser: FC = () => {
 	const form = useForm({

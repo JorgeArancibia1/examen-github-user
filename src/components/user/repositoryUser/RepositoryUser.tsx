@@ -1,6 +1,6 @@
 import { FC } from "react";
-import { Repo } from "../../interfaces";
-import { Card } from "../ui/Card";
+import { Repo } from "../../../interfaces";
+import { Card } from "../../ui/Card";
 
 interface Props {
 	repo: Repo;
