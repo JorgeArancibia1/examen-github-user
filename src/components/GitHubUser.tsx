@@ -2,6 +2,9 @@ import { useForm } from "@tanstack/react-form";
 import confetti from "canvas-confetti";
 import clsx from "clsx";
 import { FC, useEffect } from "react";
+// @ts-expect-error No tiene tipos
+import useSound from "use-sound";
+import pedro from '../assets/pedro-pedro.mp3';
 import { useUser } from "../hooks/useFetchUser";
 import { ReposUserCard } from "./ReposUserCard";
 import { UserCard } from "./UserCard";
@@ -33,6 +36,12 @@ export const GitHubUser: FC = () => {
 		}
 	}, [user]);
 
+  const [playActive] = useSound(
+		pedro,
+    { volume: 0.150 }
+	);
+
+
 	return (
 		<form
 			onSubmit={(e) => {
@@ -45,6 +54,7 @@ export const GitHubUser: FC = () => {
 						spread: 70,
 						origin: { y: 0.6 },
 					});
+					playActive();
 				}
 			}}
 		>
