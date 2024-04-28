@@ -1,4 +1,4 @@
-export interface Repo {
+export interface IRepo {
   id:                          number;
   node_id:                     string;
   name:                        string;

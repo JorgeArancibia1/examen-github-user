@@ -1,13 +1,13 @@
 import { FC } from "react";
-import { Repo } from "../../../interfaces";
+import { IRepo } from "../../../interfaces";
 import { formatDate } from "../../../utils/utilFunctions";
 import { Card } from "../../ui/Card";
 
 interface Props {
-	repo: Repo;
+	repo: IRepo;
 }
 
-export const RepositoryUserCard: FC<Props> = ({ repo }) => {
+export const RepositoryUser: FC<Props> = ({ repo }) => {
 	const redirectToRepo = (url: string) => {
 		window.open(url, "_blank");
 	};

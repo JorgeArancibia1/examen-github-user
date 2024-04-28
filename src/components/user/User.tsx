@@ -1,13 +1,13 @@
 import { FC } from "react";
-import { User } from "../../interfaces/user.interface";
+import { IUser } from "../../interfaces/user.interface";
 import { formatMount } from "../../utils/utilFunctions";
 import { Card } from "../ui/Card";
 
 interface Props {
-	info: User;
+	info: IUser;
 }
 
-export const UserCard: FC<Props> = ({ info }) => {
+export const User: FC<Props> = ({ info }) => {
 	return (
 		<Card href={info.html_url} className='custom-card'>
 			<img className='rounded-t-lg' src={info.avatar_url} alt='Avatar image' />
