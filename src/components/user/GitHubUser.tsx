@@ -2,7 +2,7 @@ import { useForm } from "@tanstack/react-form";
 import confetti from "canvas-confetti";
 import clsx from "clsx";
 import { FC, useEffect } from "react";
-import { useUser } from "../../hooks/useFetchUser";
+import { useFetchUser } from "../../hooks/useFetchUser";
 import { CloseIcon } from "../icons/CloseIcon";
 import { Loading } from "../ui/Loading";
 import { User } from "./User";
@@ -15,7 +15,7 @@ export const GitHubUser: FC = () => {
 		},
 	});
 
-	const { user, isLoading, repos, isLoadingRepos } = useUser(
+	const { user, isLoading, repos, isLoadingRepos } = useFetchUser(
 		form.state.values.searchName,
 	);
 

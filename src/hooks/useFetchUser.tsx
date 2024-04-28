@@ -2,11 +2,11 @@
 import { useQuery } from "@tanstack/react-query";
 import { AxiosError } from "axios";
 import { githubApi } from "../api/getUser";
-import { Repo, User } from "../interfaces";
+import { IRepo, IUser } from "../interfaces";
 
-const getUserInfo = async (searchName: string): Promise<User | void > => {
+const getUserInfo = async (searchName: string): Promise<IUser | void > => {
 	try {
-		const { data } = await githubApi.get<User>(
+		const { data } = await githubApi.get<IUser>(
 			`users/${searchName}`,
 		);
 
@@ -20,14 +20,14 @@ const getUserInfo = async (searchName: string): Promise<User | void > => {
 	}
 };
 
-const getReposUser = async (searchName: string): Promise<Repo[] | void> => {
+const getReposUser = async (searchName: string): Promise<IRepo[] | void> => {
 	const { data } = await githubApi.get(
 		`users/${searchName}/repos?sort=created&per_page=4`,
 	);
 	return data;
 };
 
-export const useUser = (searchName: string) => {
+export const useFetchUser = (searchName: string) => {
 	const userQuery = useQuery({
 		queryKey: ["user", "searchName", searchName],
 		queryFn: () => getUserInfo(searchName),
