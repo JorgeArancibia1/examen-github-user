@@ -1,5 +1,6 @@
 import { FC } from "react";
 import { Repo } from "../../interfaces";
+import { Card } from "../ui/Card";
 
 interface Props {
 	repo: Repo;
@@ -11,10 +12,10 @@ export const RepositoryUserCard: FC<Props> = ({ repo }) => {
 	};
 
 	return (
-		<a
+		<Card
 			href={repo.svn_url}
 			key={repo.node_id}
-			className='custom-card flex flex-col p-4 leading-normal items-start md:max-w-sm lg:max-w-lg hover:bg-gray-100 dark:hover:bg-gray-700'
+			className='custom-card p-4 items-start '
 		>
 			<div className='flex justify-between w-full'>
 				<h5 className='mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white'>
@@ -36,6 +37,6 @@ export const RepositoryUserCard: FC<Props> = ({ repo }) => {
 					Ver proyecto
 				</button>
 			)}
-		</a>
+		</Card>
 	);
 };

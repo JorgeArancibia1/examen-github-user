@@ -46,7 +46,7 @@ button:hover {
 }
 
 .custom-card {
-  @apply max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700;
+  @apply max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 flex flex-col leading-normal md:max-w-sm lg:max-w-lg hover:bg-gray-100 dark:hover:bg-gray-700;
 }
 
 @keyframes logo-spin {
