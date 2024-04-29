@@ -25,5 +25,6 @@ export default defineConfig(({ mode }) => {
       // since parsing CSS is slow
       css: true,
     },
+    base: 'https://jorgearancibia1.github.io/examen-github-user',
   }
 })
