@@ -9,11 +9,12 @@
     "Vite",
     "Tailwind CSS"
   ],
-  "version": "0.0.2",
+  "version": "0.0.3",
   "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
+    "build:optimized": "tsc && vite build --base=/examen-github-user/",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
     "predeploy": "npm run build",
