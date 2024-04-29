@@ -8,6 +8,7 @@ const cherryPickedKeys = [
 
 export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, process.cwd(), '');
+  Object.assign(process.env, loadEnv(mode, process.cwd()))
 
   const processEnv: { [key: string]: string } = {};
   cherryPickedKeys.forEach(key => processEnv[key] = env[key]);
