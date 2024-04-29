@@ -5,9 +5,10 @@ import { Card } from "../../ui/Card";
 
 interface Props {
 	repo: IRepo;
+	key: string;
 }
 
-export const RepositoryUser: FC<Props> = ({ repo }) => {
+export const RepositoryUser: FC<Props> = ({ repo, key }) => {
 	const redirectToRepo = (url: string) => {
 		window.open(url, "_blank");
 	};
@@ -15,7 +16,7 @@ export const RepositoryUser: FC<Props> = ({ repo }) => {
 	return (
 		<Card
 			href={repo.svn_url}
-			key={repo.node_id}
+			key={key}
 			className='custom-card p-4 items-start '
 		>
 			<div className='flex justify-between w-full'>

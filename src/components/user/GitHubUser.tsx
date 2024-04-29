@@ -99,7 +99,7 @@ export const GitHubUser: FC = () => {
 							</p>
 						) : (
 							repos.map((repo) => (
-								<RepositoryUser repo={repo} />
+								<RepositoryUser key={repo.node_id} repo={repo} />
 							))
 						)}
 					</div>
