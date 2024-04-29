@@ -7,6 +7,9 @@ import { CloseIcon } from "../icons/CloseIcon";
 import { Loading } from "../ui/Loading";
 import { User } from "./User";
 import { RepositoryUser } from "./repositoryUser/RepositoryUser";
+// @ts-expect-error No tiene tipos
+import useSound from "use-sound";
+import pedro from '../assets/pedro-pedro.mp3';
 
 export const GitHubUser: FC = () => {
 	const form = useForm({
@@ -33,6 +36,11 @@ export const GitHubUser: FC = () => {
 		}
 	}, [user]);
 
+  const [playActive] = useSound(
+		pedro,
+    { volume: 0.150 }
+	);
+
 	return (
 		<form
 			onSubmit={(e) => {
@@ -45,6 +53,7 @@ export const GitHubUser: FC = () => {
 						spread: 70,
 						origin: { y: 0.6 },
 					});
+					playActive();
 				}
 			}}
 		>
