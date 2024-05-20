@@ -1,7 +1,7 @@
 import { useForm } from "@tanstack/react-form";
 import confetti from "canvas-confetti";
 import clsx from "clsx";
-import { FC, useEffect } from "react";
+import { FC } from "react";
 import { useFetchUser } from "../../hooks/useFetchUser";
 import { CloseIcon } from "../icons/CloseIcon";
 import { Loading } from "../ui/Loading";
@@ -18,7 +18,7 @@ export const GitHubUser: FC = () => {
 		},
 	});
 
-	const { user, isLoading, repos, isLoadingRepos } = useFetchUser(
+	const { user, isLoading, repos, isLoadingRepos, isSuccess, isSuccessRepos } = useFetchUser(
 		form.state.values.searchName,
 	);
 
@@ -26,15 +26,13 @@ export const GitHubUser: FC = () => {
 		form.reset();
 	};
 
-	useEffect(() => {
-		if (user !== null) {
-			confetti({
-				particleCount: 100,
-				spread: 70,
-				origin: { y: 0.6 },
-			});
-		}
-	}, [user]);
+	if (isSuccessRepos && isSuccess && user !== null) {
+		confetti({
+			particleCount: 100,
+			spread: 70,
+			origin: { y: 0.6 },
+		});
+	}
 
   const [playActive] = useSound(
 		pedro,
@@ -96,7 +94,7 @@ export const GitHubUser: FC = () => {
 			)}
 
 			{/* Si viene informacion */}
-			{!!user && (
+			{!!user?.avatar_url && (
 				<div className='flex gap-2 flex-wrap justify-center'>
 					<User info={user} />
 					<div>

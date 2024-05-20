@@ -47,5 +47,7 @@ export const useFetchUser = (searchName: string) => {
 		error: userQuery.error?.message,
 		user: userQuery.data || null,
 		repos: reposQuery.data || [],
+		isSuccess: userQuery.isSuccess,
+		isSuccessRepos: reposQuery.isSuccess,
 	};
 };
