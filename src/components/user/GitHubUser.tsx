@@ -9,7 +9,7 @@ import { User } from "./User";
 import { RepositoryUser } from "./repositoryUser/RepositoryUser";
 // @ts-expect-error No tiene tipos
 import useSound from "use-sound";
-import pedro from '../assets/pedro-pedro.mp3';
+import pedro from '../../assets/pedro-pedro.mp3';
 
 export const GitHubUser: FC = () => {
 	const form = useForm({
@@ -17,6 +17,8 @@ export const GitHubUser: FC = () => {
 			searchName: "",
 		},
 	});
+
+	console.log(pedro)
 
 	const { user, isLoading, repos, isLoadingRepos, isSuccess, isSuccessRepos } = useFetchUser(
 		form.state.values.searchName,
